@@ -1,0 +1,18 @@
+<style>
+  h3{
+    margin-left:50px;
+  }
+  .new_blog{
+    width:50%;
+    margin-left:50px;
+    margin-top:50px;
+  }
+</style>
+
+<h3>投稿ページ</h3>
+<%= form_for(@blog) do |f| %>
+  <%= f.text_field :name, placeholder: '名前', :html => {:class => 'post-form'} %>
+  <%= f.text_field :text, placeholder: 'エラーに向けて一言', class: "post-form" %>
+  <style></style>
+  <%= f.submit "送信", class: "actions"%>
+<% end %>

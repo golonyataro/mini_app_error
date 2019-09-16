@@ -1,0 +1,44 @@
+<style>
+.contents{
+  height:100px;
+  width:100%;
+}
+
+
+img{
+  height:100px;
+  width:100px;
+}
+
+.user_image{
+  float:left;
+}
+
+.user_name p{
+  float:left;
+  font-size:40px;
+  width:auto;
+  height:auto;
+}
+
+.content_post{
+  margin-top:30px;
+  margin-left:30px;
+}
+
+.content_post p{
+  font-size:20px;
+}
+
+</style>
+
+<div class="contents" >
+  <div class="user_image"><%= image_tag  current_user.avatar if current_user.avatar.attached? %></div>
+  <div class="user_name"><p><%= @nickname %>さんの投稿一覧</p></div>
+</div>
+
+<div class="content_post">
+  <% @blogs.each do |blog| %>
+      <%= simple_format(blog.text) %>
+  <% end %>
+</div>

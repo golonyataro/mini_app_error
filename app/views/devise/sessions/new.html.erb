@@ -1,0 +1,29 @@
+<style>
+  h3{
+    margin-left:50px;
+  }
+
+  .new_user{
+    width:50%;
+    margin-left:50px;
+    margin-top:50px;
+  }
+</style>
+
+<h3>ログイン</h3>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <p>メールアドレス</p><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <p>パスワード</p><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>

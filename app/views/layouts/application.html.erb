@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css" href="./style.css"></style>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <style>
+      body {
+        background-color: #FAFAFA;
+        color: #333;
+        margin: 0px;
+      }
+
+      body, p, ol, ul, td {
+        font-family: helvetica, verdana, arial, sans-serif;
+        font-size:   13px;
+        line-height: 18px;
+      }
+      
+      h1 {
+        margin: 0.2em 0;
+        line-height: 1.1em;
+        font-size: 2em;
+      }
+
+      header {
+        background: #C52F24;
+        padding: 0.5em 1.5em;
+      }
+
+      header a{
+        color: white;
+      }
+
+      header a:visited {
+        color: white;
+      }   
+  </style>
+  </head>
+
+  <body>
+  
+  <header>
+    <h1>
+    <a href="/blogs">Message for rails error#index</a>
+    </h1>
+  </header>
+
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <script type="text/javascript" src="./app.js"></script>
+    <%= yield %>
+  </body>
+</html>

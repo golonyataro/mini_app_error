@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body {
+      background-color: #FAFAFA;
+      color: #333;
+      margin: 0px;
+    }
+
+    body, p, ol, ul, td {
+      font-family: helvetica, verdana, arial, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+
+    pre.box {
+      border: 1px solid #EEE;
+      padding: 10px;
+      margin: 0px;
+      width: 958px;
+    }
+
+    header {
+      background: #C52F24;
+      padding: 0.5em 1.5em;
+    }
+
+    h1 {
+      margin: 0.2em 0;
+      line-height: 1.1em;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #C52F24;
+      line-height: 25px;
+    }
+
+    img{
+      height:30px;
+      width:30px;
+    }
+
+    .details {
+      border: 1px solid #D0D0D0;
+      border-radius: 4px;
+      margin: 1em 0px;
+      display: block;
+      width: 978px;
+    }
+
+    .summary {
+      padding: 8px 15px;
+      border-bottom: 1px solid #D0D0D0;
+      display: block;
+    }
+
+    .details pre {
+      margin: 5px;
+      border: none;
+    }
+
+    #container {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 1.5em;
+    }
+
+    .source * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .source {
+      border: 1px solid #D9D9D9;
+      background: #ECECEC;
+      width: 978px;
+    }
+
+    .source pre {
+      padding: 10px 0px;
+      border: none;
+    }
+
+    .source .data {
+      font-size: 80%;
+      overflow: auto;
+      background-color: #FFF;
+    }
+
+    .info {
+      padding: 0.5em;
+    }
+
+    .source .data .line_numbers {
+      background-color: #ECECEC;
+      color: #AAA;
+      padding: 1em .5em;
+      border-right: 1px solid #DDD;
+      text-align: right;
+    }
+
+    .line {
+      padding-left: 10px;
+      white-space: pre;
+    }
+
+    .line:hover {
+      background-color: #F6F6F6;
+    }
+
+    .line.active {
+      background-color: #FFCCCC;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    a { color: #980905; }
+    a:visited { color: #666; }
+    a.trace-frames { color: #666; }
+    a:hover { color: #C52F24; }
+    a.trace-frames.selected { color: #C52F24 }
+
+    header a{
+      color: white;
+    }
+
+    header a:visited {
+      color: white;
+    }
+
+  </style>
+
+  <script>
+    var toggle = function(id) {
+      var s = document.getElementById(id).style;
+      s.display = s.display == 'none' ? 'block' : 'none';
+      return false;
+    }
+    var show = function(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    var hide = function(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    var toggleTrace = function() {
+      return toggle('blame_trace');
+    }
+    var toggleSessionDump = function() {
+      return toggle('session_dump');
+    }
+    var toggleEnvDump = function() {
+      return toggle('env_dump');
+    }
+  </script>
+</head>
+<body>
+
+
+<% if user_signed_in? %>
+<div id="container">
+  <p>
+    Showing <i>/Users/hondaeitaro/projects/mini_app/app/views/layouts/application.html.erb</i> where line <b>#24</b> raised:
+  </p>
+  <pre><code>undefined local variable or method `user_signed_in&#39; for #&lt;#&lt;Class:0x00007fba2efe9df0&gt;:0x00007fba2e76aa80&gt;
+Did you mean?  user_signed_in?</code></pre>
+
+      <div class="source " id="frame-source-0">
+      <div class="info">
+        Extracted source (around line <strong>#24</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">      &lt;a href=&quot;/blogs&quot; class=&quot;brand-logo&quot;&gt;Pikemon&lt;/a&gt;
+</div><div class="line">      &lt;ul id=&quot;nav-mobile&quot; class=&quot;right hide-on-med-and-down&quot;&gt;
+</div><div class="line active">      &lt;% if user_signed_in %&gt;
+</div><div class="line">        &lt;li&gt;&lt;a href=&quot;/blogs/new&quot;&gt;<a href="/blogs/new">投稿する</a>&lt;/a&gt;&lt;/li&gt;
+</div><div class="line">        &lt;li&gt;&lt;%= link_to &quot;<%= link_to "ログアウト", destroy_user_session_path , method: :delete  %>&quot;, destroy_user_session_path, method: :delete %&gt;&lt;/li&gt;
+</div><div class="line">        &lt;li&gt;&lt;a href=&quot;/users/&lt;%= current_user.id %&gt;&quot;&gt;<a href="/users/<%= current_user.id %>">マイページ</a>&lt;/a&gt;&lt;/li&gt;
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+  <p></p>
+
+
+<p><code>Rails.root: /Users/hondaeitaro/projects/mini_app</code></p>
+
+<% else %>
+<div id="container">
+  <p>
+    Showing <i>/Users/hondaeitaro/projects/mini_app/app/views/layouts/application.html.erb</i> where line <b>#30</b> raised:
+  </p>
+  <pre><code>undefined local variable or method `els&#39; for #&lt;#&lt;Class:0x00007fcdc5c04078&gt;:0x00007fcdc53742a0&gt;</code></pre>
+
+      <div class="source " id="frame-source-0">
+      <div class="info">
+        Extracted source (around line <strong>#30</strong>):
+      </div>
+      <div class="data">
+        <table cellpadding="0" cellspacing="0" class="lines">
+          <tr>
+            <td>
+              <pre class="line_numbers">
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+              </pre>
+            </td>
+<td width="100%">
+<pre>
+<div class="line">
+</div><div class="line">
+</div><div class="line active">      &lt;% els %&gt;
+</div><div class="line">        &lt;li&gt;&lt;%= link_to &quot;<%= link_to "ログイン", new_user_session_path, class: 'post' %>&quot;, new_user_session_path, class: &#39;post&#39; %&gt;&lt;/li&gt;
+</div><div class="line">        &lt;li&gt;&lt;%= link_to &quot;<%= link_to "新規登録", new_user_registration_path, class: 'post' %>&quot;, new_user_registration_path, class: &#39;post&#39; %&gt;&lt;/li&gt;
+</div><div class="line">      &lt;% end %&gt;
+</div>
+</pre>
+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+  <p></p>
+
+
+<p><code>Rails.root: /Users/hondaeitaro/projects/mini_app</code></p>
+
+<% end %>
+
+<div id="traces">
+    <a href="#" onclick="hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);; return false;">Application Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);; return false;">Framework Trace</a> |
+    <a href="#" onclick="hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);; return false;">Full Trace</a>
+
+    <div id="Application-Trace" style="display: block;">
+      <pre><code><a class="trace-frames" data-frame-id="0" href="#">app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb___1964492403086728995_70218810069220&#39;</a><br></code></pre>
+    </div>
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code><a class="trace-frames" data-frame-id="1" href="#">actionview (5.2.3) lib/action_view/template.rb:159:in `block in render&#39;</a><br><a class="trace-frames" data-frame-id="2" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:170:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="3" href="#">actionview (5.2.3) lib/action_view/template.rb:354:in `instrument_render_template&#39;</a><br><a class="trace-frames" data-frame-id="4" href="#">actionview (5.2.3) lib/action_view/template.rb:157:in `render&#39;</a><br><a class="trace-frames" data-frame-id="5" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout&#39;</a><br><a class="trace-frames" data-frame-id="6" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:52:in `render_template&#39;</a><br><a class="trace-frames" data-frame-id="7" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:16:in `render&#39;</a><br><a class="trace-frames" data-frame-id="8" href="#">actionview (5.2.3) lib/action_view/renderer/renderer.rb:44:in `render_template&#39;</a><br><a class="trace-frames" data-frame-id="9" href="#">actionview (5.2.3) lib/action_view/renderer/renderer.rb:25:in `render&#39;</a><br><a class="trace-frames" data-frame-id="10" href="#">actionview (5.2.3) lib/action_view/rendering.rb:103:in `_render_template&#39;</a><br><a class="trace-frames" data-frame-id="11" href="#">actionpack (5.2.3) lib/action_controller/metal/streaming.rb:219:in `_render_template&#39;</a><br><a class="trace-frames" data-frame-id="12" href="#">actionview (5.2.3) lib/action_view/rendering.rb:84:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="13" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:52:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="14" href="#">actionpack (5.2.3) lib/action_controller/metal/renderers.rb:142:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="15" href="#">actionpack (5.2.3) lib/abstract_controller/rendering.rb:25:in `render&#39;</a><br><a class="trace-frames" data-frame-id="16" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:36:in `render&#39;</a><br><a class="trace-frames" data-frame-id="17" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:46:in `block (2 levels) in render&#39;</a><br><a class="trace-frames" data-frame-id="18" href="#">activesupport (5.2.3) lib/active_support/core_ext/benchmark.rb:14:in `block in ms&#39;</a><br><a class="trace-frames" data-frame-id="19" href="#">/Users/hondaeitaro/.rbenv/versions/2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime&#39;</a><br><a class="trace-frames" data-frame-id="20" href="#">activesupport (5.2.3) lib/active_support/core_ext/benchmark.rb:14:in `ms&#39;</a><br><a class="trace-frames" data-frame-id="21" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:46:in `block in render&#39;</a><br><a class="trace-frames" data-frame-id="22" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime&#39;</a><br><a class="trace-frames" data-frame-id="23" href="#">activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:31:in `cleanup_view_runtime&#39;</a><br><a class="trace-frames" data-frame-id="24" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:45:in `render&#39;</a><br><a class="trace-frames" data-frame-id="25" href="#">actionpack (5.2.3) lib/action_controller/metal/implicit_render.rb:35:in `default_render&#39;</a><br><a class="trace-frames" data-frame-id="26" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action&#39;</a><br><a class="trace-frames" data-frame-id="27" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap&#39;</a><br><a class="trace-frames" data-frame-id="28" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action&#39;</a><br><a class="trace-frames" data-frame-id="29" href="#">actionpack (5.2.3) lib/abstract_controller/base.rb:194:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="30" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:30:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="31" href="#">actionpack (5.2.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="32" href="#">activesupport (5.2.3) lib/active_support/callbacks.rb:132:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="33" href="#">actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="34" href="#">actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="35" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="36" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument&#39;</a><br><a class="trace-frames" data-frame-id="37" href="#">activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="38" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="39" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="40" href="#">actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="41" href="#">activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="42" href="#">actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process&#39;</a><br><a class="trace-frames" data-frame-id="43" href="#">actionview (5.2.3) lib/action_view/rendering.rb:32:in `process&#39;</a><br><a class="trace-frames" data-frame-id="44" href="#">actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="45" href="#">actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="46" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="47" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="48" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve&#39;</a><br><a class="trace-frames" data-frame-id="49" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each&#39;</a><br><a class="trace-frames" data-frame-id="50" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="51" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call&#39;</a><br><a class="trace-frames" data-frame-id="52" href="#">warden (1.2.8) lib/warden/manager.rb:36:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="53" href="#">warden (1.2.8) lib/warden/manager.rb:34:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="54" href="#">warden (1.2.8) lib/warden/manager.rb:34:in `call&#39;</a><br><a class="trace-frames" data-frame-id="55" href="#">rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call&#39;</a><br><a class="trace-frames" data-frame-id="56" href="#">rack (2.0.7) lib/rack/etag.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="57" href="#">rack (2.0.7) lib/rack/conditional_get.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="58" href="#">rack (2.0.7) lib/rack/head.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="59" href="#">actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call&#39;</a><br><a class="trace-frames" data-frame-id="60" href="#">rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context&#39;</a><br><a class="trace-frames" data-frame-id="61" href="#">rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call&#39;</a><br><a class="trace-frames" data-frame-id="62" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call&#39;</a><br><a class="trace-frames" data-frame-id="63" href="#">activerecord (5.2.3) lib/active_record/migration.rb:559:in `call&#39;</a><br><a class="trace-frames" data-frame-id="64" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="65" href="#">activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="66" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call&#39;</a><br><a class="trace-frames" data-frame-id="67" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call&#39;</a><br><a class="trace-frames" data-frame-id="68" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call&#39;</a><br><a class="trace-frames" data-frame-id="69" href="#">web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="70" href="#">web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="71" href="#">web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="72" href="#">web-console (3.7.0) lib/web_console/middleware.rb:20:in `call&#39;</a><br><a class="trace-frames" data-frame-id="73" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call&#39;</a><br><a class="trace-frames" data-frame-id="74" href="#">railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="75" href="#">railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="76" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged&#39;</a><br><a class="trace-frames" data-frame-id="77" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="78" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="79" href="#">railties (5.2.3) lib/rails/rack/logger.rb:26:in `call&#39;</a><br><a class="trace-frames" data-frame-id="80" href="#">sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call&#39;</a><br><a class="trace-frames" data-frame-id="81" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call&#39;</a><br><a class="trace-frames" data-frame-id="82" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call&#39;</a><br><a class="trace-frames" data-frame-id="83" href="#">rack (2.0.7) lib/rack/method_override.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="84" href="#">rack (2.0.7) lib/rack/runtime.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="85" href="#">activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call&#39;</a><br><a class="trace-frames" data-frame-id="86" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call&#39;</a><br><a class="trace-frames" data-frame-id="87" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call&#39;</a><br><a class="trace-frames" data-frame-id="88" href="#">rack (2.0.7) lib/rack/sendfile.rb:111:in `call&#39;</a><br><a class="trace-frames" data-frame-id="89" href="#">railties (5.2.3) lib/rails/engine.rb:524:in `call&#39;</a><br><a class="trace-frames" data-frame-id="90" href="#">puma (3.12.1) lib/puma/configuration.rb:227:in `call&#39;</a><br><a class="trace-frames" data-frame-id="91" href="#">puma (3.12.1) lib/puma/server.rb:660:in `handle_request&#39;</a><br><a class="trace-frames" data-frame-id="92" href="#">puma (3.12.1) lib/puma/server.rb:474:in `process_client&#39;</a><br><a class="trace-frames" data-frame-id="93" href="#">puma (3.12.1) lib/puma/server.rb:334:in `block in run&#39;</a><br><a class="trace-frames" data-frame-id="94" href="#">puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread&#39;</a><br></code></pre>
+    </div>
+    <div id="Full-Trace" style="display: none;">
+      <pre><code><a class="trace-frames" data-frame-id="0" href="#">app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb___1964492403086728995_70218810069220&#39;</a><br><a class="trace-frames" data-frame-id="1" href="#">actionview (5.2.3) lib/action_view/template.rb:159:in `block in render&#39;</a><br><a class="trace-frames" data-frame-id="2" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:170:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="3" href="#">actionview (5.2.3) lib/action_view/template.rb:354:in `instrument_render_template&#39;</a><br><a class="trace-frames" data-frame-id="4" href="#">actionview (5.2.3) lib/action_view/template.rb:157:in `render&#39;</a><br><a class="trace-frames" data-frame-id="5" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout&#39;</a><br><a class="trace-frames" data-frame-id="6" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:52:in `render_template&#39;</a><br><a class="trace-frames" data-frame-id="7" href="#">actionview (5.2.3) lib/action_view/renderer/template_renderer.rb:16:in `render&#39;</a><br><a class="trace-frames" data-frame-id="8" href="#">actionview (5.2.3) lib/action_view/renderer/renderer.rb:44:in `render_template&#39;</a><br><a class="trace-frames" data-frame-id="9" href="#">actionview (5.2.3) lib/action_view/renderer/renderer.rb:25:in `render&#39;</a><br><a class="trace-frames" data-frame-id="10" href="#">actionview (5.2.3) lib/action_view/rendering.rb:103:in `_render_template&#39;</a><br><a class="trace-frames" data-frame-id="11" href="#">actionpack (5.2.3) lib/action_controller/metal/streaming.rb:219:in `_render_template&#39;</a><br><a class="trace-frames" data-frame-id="12" href="#">actionview (5.2.3) lib/action_view/rendering.rb:84:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="13" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:52:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="14" href="#">actionpack (5.2.3) lib/action_controller/metal/renderers.rb:142:in `render_to_body&#39;</a><br><a class="trace-frames" data-frame-id="15" href="#">actionpack (5.2.3) lib/abstract_controller/rendering.rb:25:in `render&#39;</a><br><a class="trace-frames" data-frame-id="16" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:36:in `render&#39;</a><br><a class="trace-frames" data-frame-id="17" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:46:in `block (2 levels) in render&#39;</a><br><a class="trace-frames" data-frame-id="18" href="#">activesupport (5.2.3) lib/active_support/core_ext/benchmark.rb:14:in `block in ms&#39;</a><br><a class="trace-frames" data-frame-id="19" href="#">/Users/hondaeitaro/.rbenv/versions/2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime&#39;</a><br><a class="trace-frames" data-frame-id="20" href="#">activesupport (5.2.3) lib/active_support/core_ext/benchmark.rb:14:in `ms&#39;</a><br><a class="trace-frames" data-frame-id="21" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:46:in `block in render&#39;</a><br><a class="trace-frames" data-frame-id="22" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime&#39;</a><br><a class="trace-frames" data-frame-id="23" href="#">activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:31:in `cleanup_view_runtime&#39;</a><br><a class="trace-frames" data-frame-id="24" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:45:in `render&#39;</a><br><a class="trace-frames" data-frame-id="25" href="#">actionpack (5.2.3) lib/action_controller/metal/implicit_render.rb:35:in `default_render&#39;</a><br><a class="trace-frames" data-frame-id="26" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action&#39;</a><br><a class="trace-frames" data-frame-id="27" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap&#39;</a><br><a class="trace-frames" data-frame-id="28" href="#">actionpack (5.2.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action&#39;</a><br><a class="trace-frames" data-frame-id="29" href="#">actionpack (5.2.3) lib/abstract_controller/base.rb:194:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="30" href="#">actionpack (5.2.3) lib/action_controller/metal/rendering.rb:30:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="31" href="#">actionpack (5.2.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="32" href="#">activesupport (5.2.3) lib/active_support/callbacks.rb:132:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="33" href="#">actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="34" href="#">actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="35" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action&#39;</a><br><a class="trace-frames" data-frame-id="36" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument&#39;</a><br><a class="trace-frames" data-frame-id="37" href="#">activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="38" href="#">activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument&#39;</a><br><a class="trace-frames" data-frame-id="39" href="#">actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="40" href="#">actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="41" href="#">activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action&#39;</a><br><a class="trace-frames" data-frame-id="42" href="#">actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process&#39;</a><br><a class="trace-frames" data-frame-id="43" href="#">actionview (5.2.3) lib/action_view/rendering.rb:32:in `process&#39;</a><br><a class="trace-frames" data-frame-id="44" href="#">actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="45" href="#">actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="46" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch&#39;</a><br><a class="trace-frames" data-frame-id="47" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="48" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve&#39;</a><br><a class="trace-frames" data-frame-id="49" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each&#39;</a><br><a class="trace-frames" data-frame-id="50" href="#">actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve&#39;</a><br><a class="trace-frames" data-frame-id="51" href="#">actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call&#39;</a><br><a class="trace-frames" data-frame-id="52" href="#">warden (1.2.8) lib/warden/manager.rb:36:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="53" href="#">warden (1.2.8) lib/warden/manager.rb:34:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="54" href="#">warden (1.2.8) lib/warden/manager.rb:34:in `call&#39;</a><br><a class="trace-frames" data-frame-id="55" href="#">rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call&#39;</a><br><a class="trace-frames" data-frame-id="56" href="#">rack (2.0.7) lib/rack/etag.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="57" href="#">rack (2.0.7) lib/rack/conditional_get.rb:25:in `call&#39;</a><br><a class="trace-frames" data-frame-id="58" href="#">rack (2.0.7) lib/rack/head.rb:12:in `call&#39;</a><br><a class="trace-frames" data-frame-id="59" href="#">actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call&#39;</a><br><a class="trace-frames" data-frame-id="60" href="#">rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context&#39;</a><br><a class="trace-frames" data-frame-id="61" href="#">rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call&#39;</a><br><a class="trace-frames" data-frame-id="62" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call&#39;</a><br><a class="trace-frames" data-frame-id="63" href="#">activerecord (5.2.3) lib/active_record/migration.rb:559:in `call&#39;</a><br><a class="trace-frames" data-frame-id="64" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="65" href="#">activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks&#39;</a><br><a class="trace-frames" data-frame-id="66" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call&#39;</a><br><a class="trace-frames" data-frame-id="67" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call&#39;</a><br><a class="trace-frames" data-frame-id="68" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call&#39;</a><br><a class="trace-frames" data-frame-id="69" href="#">web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="70" href="#">web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="71" href="#">web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch&#39;</a><br><a class="trace-frames" data-frame-id="72" href="#">web-console (3.7.0) lib/web_console/middleware.rb:20:in `call&#39;</a><br><a class="trace-frames" data-frame-id="73" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call&#39;</a><br><a class="trace-frames" data-frame-id="74" href="#">railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app&#39;</a><br><a class="trace-frames" data-frame-id="75" href="#">railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call&#39;</a><br><a class="trace-frames" data-frame-id="76" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged&#39;</a><br><a class="trace-frames" data-frame-id="77" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="78" href="#">activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged&#39;</a><br><a class="trace-frames" data-frame-id="79" href="#">railties (5.2.3) lib/rails/rack/logger.rb:26:in `call&#39;</a><br><a class="trace-frames" data-frame-id="80" href="#">sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call&#39;</a><br><a class="trace-frames" data-frame-id="81" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call&#39;</a><br><a class="trace-frames" data-frame-id="82" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call&#39;</a><br><a class="trace-frames" data-frame-id="83" href="#">rack (2.0.7) lib/rack/method_override.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="84" href="#">rack (2.0.7) lib/rack/runtime.rb:22:in `call&#39;</a><br><a class="trace-frames" data-frame-id="85" href="#">activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call&#39;</a><br><a class="trace-frames" data-frame-id="86" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call&#39;</a><br><a class="trace-frames" data-frame-id="87" href="#">actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call&#39;</a><br><a class="trace-frames" data-frame-id="88" href="#">rack (2.0.7) lib/rack/sendfile.rb:111:in `call&#39;</a><br><a class="trace-frames" data-frame-id="89" href="#">railties (5.2.3) lib/rails/engine.rb:524:in `call&#39;</a><br><a class="trace-frames" data-frame-id="90" href="#">puma (3.12.1) lib/puma/configuration.rb:227:in `call&#39;</a><br><a class="trace-frames" data-frame-id="91" href="#">puma (3.12.1) lib/puma/server.rb:660:in `handle_request&#39;</a><br><a class="trace-frames" data-frame-id="92" href="#">puma (3.12.1) lib/puma/server.rb:474:in `process_client&#39;</a><br><a class="trace-frames" data-frame-id="93" href="#">puma (3.12.1) lib/puma/server.rb:334:in `block in run&#39;</a><br><a class="trace-frames" data-frame-id="94" href="#">puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread&#39;</a><br></code></pre>
+    </div>
+
+  <script type="text/javascript">
+    var traceFrames = document.getElementsByClassName('trace-frames');
+    var selectedFrame, currentSource = document.getElementById('frame-source-0');
+
+    // Add click listeners for all stack frames
+    for (var i = 0; i < traceFrames.length; i++) {
+      traceFrames[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = e.target;
+        var frame_id = target.dataset.frameId;
+
+        if (selectedFrame) {
+          selectedFrame.className = selectedFrame.className.replace("selected", "");
+        }
+
+        target.className += " selected";
+        selectedFrame = target;
+
+        // Change the extracted source code
+        changeSourceExtract(frame_id);
+      });
+
+      function changeSourceExtract(frame_id) {
+        var el = document.getElementById('frame-source-' + frame_id);
+        if (currentSource && el) {
+          currentSource.className += " hidden";
+          el.className = el.className.replace(" hidden", "");
+          currentSource = el;
+        }
+      }
+    }
+  </script>
+</div>
+
+
+<h2 style="margin-top: 30px">Posted list</h2>
+<p><b>Everybody's Posting</b>:</p>
+
+<% @blogs.each do |blog| %>
+  <div class="post-content">
+    <%= render partial: "blog", locals: {blog: blog} %>
+    <div class="post-name">
+    <%= image_tag  blog.user.avatar if blog.user.avatar.attached? %>
+    <%= "投稿者:#{blog.name}" %>
+    </div>
+  </div>
+<%end%>
+
+
+
+
+</body>
+</html>
