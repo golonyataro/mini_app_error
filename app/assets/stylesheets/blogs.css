@@ -9,8 +9,11 @@ h4{
 }
 
 .post-name{
-  margin-bottom:30px;
   margin-left:30px;
+}
+
+.post-content{
+  margin-bottom: 50px;
 }
 
 textarea{
