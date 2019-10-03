@@ -32,6 +32,7 @@ class BlogsController < ApplicationController
 
   def destroy
     blog = Blog.find(params[:id])
+    binding.pry
     blog.destroy!
     redirect_to("/blogs")
   end
