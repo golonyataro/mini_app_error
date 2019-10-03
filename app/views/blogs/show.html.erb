@@ -2,5 +2,5 @@
   <%= "投稿内容:#{@blog.text}" %>
   <%= "投稿者:#{@blog.name}" %>
   <%= link_to("編集", "/blogs/#{@blog.id}/edit",method: :get) %>
-  <%= link_to("削除", blog_path(@blog.id), method: :delete) %>
+  <%= button_to("削除", blog_path(@blog.id), method: :delete) %>
 </div>
